@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 import './App.css'; 
 
+
 const thumbsContainer = {
   display: 'flex',
   flexDirection: 'row',
@@ -64,20 +65,27 @@ function App(props) {
     return () => files.forEach(file => URL.revokeObjectURL(file.preview));
   }, []);
 
+
   return (
-    <div className='dropzone-align'>
-      <section className="container">
-        <div {...getRootProps({className: 'dropzone'})}>
-          <input {...getInputProps()} />
-          <div className='dropzone-box'>
-            <p>Drag 'n' drop image here, or click to select files</p>
+    <>
+      <div classname='title-align'>
+        Photo Gallery 
+      </div>
+
+      <div className='dropzone-align'>
+        <section className="container">
+          <div {...getRootProps({className: 'dropzone'})}>
+            <input {...getInputProps()} />
+            <div className='dropzone-box'>
+              <p>Drag 'n' drop image here, or click to select files to upload. </p>
+            </div>
           </div>
-        </div>
-        <aside style={thumbsContainer}>
-          {thumbs}
-        </aside>
-      </section>
-    </div> 
+          <aside style={thumbsContainer}>
+            {thumbs}
+          </aside>
+        </section>
+      </div> 
+    </>
   );
 }
 
